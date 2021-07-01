@@ -27,4 +27,10 @@ router.delete('/delete/:id', async(req, res)=>{
     res.json(deldata)
 })
 
+//update record
+router.patch('/update/:id', async(req, res)=>{
+    const updatedata=await Quote.updateOne({_id:req.params.id}, {$set:req.body})
+    res.json(updatedata)
+})
+
 module.exports=router
