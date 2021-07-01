@@ -15,4 +15,10 @@ router.post('/new', async(req, res)=>{
     res.json(saveQuote)
 })
 
+//get specific quote
+router.get('/get/:id', async(req, res)=>{
+    const quote=await Quote.findById({_id:req.params.id})
+    res.json(quote)
+})
+
 module.exports=router
